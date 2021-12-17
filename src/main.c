@@ -51,9 +51,10 @@ int handle_option(char *arg)
 		bpType = TOURNAMENT;
 		sscanf(arg + 13, "%d:%d:%d", &ghistoryBits, &lhistoryBits, &pcIndexBits);
 	}
-	else if (!strcmp(arg, "--custom"))
+	else if (!strncmp(arg, "--perceptron:", 13))
 	{
-		bpType = CUSTOM;
+		bpType = PERCEPTRON;
+		sscanf(arg + 13, "%d:%d", &n_perceptrons, &perceptron_history_length);
 	}
 	else if (!strcmp(arg, "--verbose"))
 	{
